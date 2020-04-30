@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Fontawesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+<!-- Css link -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather App</title>
+</head>
+<body>
+    <!-- create two rows -->
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12 header">
+            Weather Dashboard
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+              Search for a City:
+            <input class="SearchCity"><i class="fas fa-search"></i>
+          </div>
+          <div class="col-sm-9">
+            <!-- subrows -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- <div class="CurrentWeather"> Current Weather</div> -->
+                    <div class="card CurrentWeather" style="width: 100%;">
+                        <div class="card-body">
+                          <h5 class="card-title">Name of city</h5>
+                          <p class="card-text">Temperature</p>
+                          <p class="card-text">Humidity</p>
+                          <p class="card-text">WindSpeed</p>
+                          <p class="card-text">UV Index</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="FiveDayWeather"> 5 Days Weather</div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+<!-- JS link for Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
