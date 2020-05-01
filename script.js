@@ -2,11 +2,8 @@
 $(document).ready(function(){
     // localStorage.clear();
 
-    
-    //Create empty array to fill with user input
     var Cities = [];
-    
-    
+
     //Create function to get the user input (name of city)
     function GetInput(event) {
         event.preventDefault();
@@ -57,8 +54,9 @@ $(document).ready(function(){
             // We store all of the retrieved data inside of an object called "response"
             .then(function(response) {
                 console.log(response);
+                //Current weather
                 //Data to populate CurrentWeather in DOM
-                $("#TitleCity").text(response.city.name);
+                $("#TitleCity").text(response.city.name + "  (" + response.list[0].dt_txt.substr(0, 10) + ")"); // Use substr(0, 10 to only retrieve date and not time from the WeatherAPI)
                 $("#Temp").text("Temperature: " + ((response.list[0].main.temp- 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity").text("Humidity: " + response.list[0].main.humidity + " %");
                 $("#Wind").text("Wind Speed: " + response.list[0].wind.speed + " mph");
@@ -67,6 +65,27 @@ $(document).ready(function(){
                 var longitude = response.city.coord.lon;
                 //Transfer the loca variables to weatherUVI()
                 WeatherUVI(latitude, longitude)
+
+                //1st day after current weather. Info display from mid-day information
+                $("#Date1").text(response.list[6].dt_txt.substr(0, 10));
+                $("#Temp1").text("Temp: " + ((response.list[6].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
+                $("#Humidity1").text("Hum.: " + response.list[6].main.humidity + " %");
+                //2nd day after current weather. Info display from mid-day information
+                $("#Date2").text(response.list[14].dt_txt.substr(0, 10));
+                $("#Temp2").text("Temp: " + ((response.list[14].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
+                $("#Humidity2").text("Hum: " + response.list[14].main.humidity + " %");
+                //3nd day after current weather. Info display from mid-day information
+                $("#Date3").text(response.list[22].dt_txt.substr(0, 10));
+                $("#Temp3").text("Temp: " + ((response.list[22].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
+                $("#Humidity3").text("Hum: " + response.list[22].main.humidity + " %");
+                //4nd day after current weather. Info display from mid-day information
+                $("#Date4").text(response.list[30].dt_txt.substr(0, 10));
+                $("#Temp4").text("Temp: " + ((response.list[30].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
+                $("#Humidity4").text("Hum: " + response.list[30].main.humidity + " %");
+                //5nd day after current weather. Info display from mid-day information
+                $("#Date5").text(response.list[38].dt_txt.substr(0, 10));
+                $("#Temp5").text("Temp: " + ((response.list[38].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
+                $("#Humidity5").text("Hum: " + response.list[38].main.humidity + " %");
                 
             });
     } // }closes WeatherAPI ()
