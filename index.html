@@ -26,29 +26,73 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-3">
+          <div id="CityList" class="col-sm-3">
               Search for a City:
             <input class="SearchCity"><i class="fas fa-search"></i>
           </div>
           <div class="col-sm-9">
             <!-- subrows -->
             <div class="row">
+              <!-- Row for Current Weather -->
                 <div class="col-sm-12">
-                    <!-- <div class="CurrentWeather"> Current Weather</div> -->
                     <div class="card CurrentWeather" style="width: 100%;">
                         <div class="card-body">
-                          <h5 class="card-title">Name of city</h5>
-                          <p class="card-text">Temperature</p>
-                          <p class="card-text">Humidity</p>
-                          <p class="card-text">WindSpeed</p>
-                          <p class="card-text">UV Index</p>
+                          <h5 id="TitleCity" class="card-title">Name of city</h5>
+                          <p id="Temp" class="card-text">Temperature</p>
+                          <p id="Humidity" class="card-text">Humidity</p>
+                          <p id="Wind" class="card-text">WindSpeed</p>
+                          <p id="UVIndex" class="card-text">UV Index</p>
                         </div>
                       </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="FiveDayWeather"> 5 Days Weather</div>
+            <div class="row FiveDays">
+              
+              <!--Row for 5Days Weather-->
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast1" style="width: 100%;">
+                    <div class="card-body">
+                      <h2 id="Date1" class="card-title">Date</h2>
+                      <p id="Temp1" class="card-text">Temperature</p>
+                      <p id="Humidity1" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast2" style="width: 100%;">
+                    <div class="card-body">
+                      <h2 id="Date2" class="card-title">Date</h2>
+                      <p id="Temp2" class="card-text">Temperature</p>
+                      <p id="Humidity2" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast3" style="width: 100%;">
+                    <div class="card-body">
+                      <h2 id="Date3" class="card-title">Date</h2>
+                      <p id="Temp3" class="card-text">Temperature</p>
+                      <p id="Humidity3" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast4" style="width: 100%;">
+                    <div class="card-body">
+                      <h2 id="Date4" class="card-title">Date</h2>
+                      <p id="Temp4" class="card-text">Temperature</p>
+                      <p id="Humidity4" class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2.4 mx-2">
+                  <div class="Forecast5" style="width: 100%;">
+                    <div class="card-body">
+                      <h2 id="Date5" class="card-title">Date</h2>
+                      <p id="Temp5" class="card-text">Temperature</p>
+                      <p id="Humidity5" class="card-text">Humidity</p>
+                    </div>
+                  </div>
                 </div>
             </div>
           </div>

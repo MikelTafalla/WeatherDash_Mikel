@@ -18,3 +18,33 @@
 .CurrentWeather {
     margin-bottom: 3%;
 }
+
+.Forecast1 {
+    background-color: blue;
+    color: White;
+    margin-right: 1.5%;
+}
+
+.Forecast2 {
+    background-color: blue;
+    color: White;
+    margin-right: 5%;
+}
+
+.Forecast3 {
+    background-color: blue;
+    color: White;
+    margin-right: 1.5%;
+}
+
+.Forecast4 {
+    background-color: blue;
+    color: White;
+    margin-right: 1.5%;
+}
+
+.Forecast5 {
+    background-color: blue;
+    color: White;
+    margin-right: 1.5%;
+}
