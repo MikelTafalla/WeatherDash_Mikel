@@ -35,6 +35,7 @@ $(document).ready(function(){
             // print the information in a list, print every name we have in local storage
             var List = $("<div>").text(CitiesToDisplay).addClass("Clickable"); //add class to add clickable function later
             $("#CityList").append(List);
+            
         }
     }
     // This is my API key Globalscope to use it with all API functions
@@ -54,9 +55,25 @@ $(document).ready(function(){
             // We store all of the retrieved data inside of an object called "response"
             .then(function(response) {
                 console.log(response);
+                //create URLs to get icons from weather API
+                var CurrentIcon = "http://openweathermap.org/img/wn/"+response.list[0].weather[0].icon+"@2x.png";
+                var FirstDay = "http://openweathermap.org/img/wn/"+response.list[6].weather[0].icon+"@2x.png";
+                var SecondDay = "http://openweathermap.org/img/wn/"+response.list[14].weather[0].icon+"@2x.png";
+                var ThirdDAy = "http://openweathermap.org/img/wn/"+response.list[22].weather[0].icon+"@2x.png";
+                var FourthDay = "http://openweathermap.org/img/wn/"+response.list[30].weather[0].icon+"@2x.png";
+                var FithDay = "http://openweathermap.org/img/wn/"+response.list[38].weather[0].icon+"@2x.png";
+        
+                //Store theimage in a variable to use below
+                var IconMain = $('<img src=" '+ CurrentIcon +' "/>');
+                var IconOne = $('<img src=" '+ FirstDay +' "/>');
+                var IconTwo = $('<img src=" '+ SecondDay +' "/>');
+                var IconThree = $('<img src=" '+ ThirdDAy +' "/>');
+                var IconFour = $('<img src=" '+ FourthDay +' "/>');
+                var IconFive = $('<img src=" '+ FithDay +' "/>');
+
                 //Current weather
                 //Data to populate CurrentWeather in DOM
-                $("#TitleCity").text(response.city.name + "  (" + response.list[0].dt_txt.substr(0, 10) + ")"); // Use substr(0, 10 to only retrieve date and not time from the WeatherAPI)
+                $("#TitleCity").text(response.city.name + "  (" + response.list[0].dt_txt.substr(0, 10) + ")").append(IconMain); // Use substr(0, 10 to only retrieve date and not time from the WeatherAPI)
                 $("#Temp").text("Temperature: " + ((response.list[6].main.temp- 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity").text("Humidity: " + response.list[6].main.humidity + " %");
                 $("#Wind").text("Wind Speed: " + response.list[6].wind.speed + " mph");
@@ -68,22 +85,27 @@ $(document).ready(function(){
 
                 //1st day = current weather. Info display from mid-day information
                 $("#Date1").text(response.list[6].dt_txt.substr(0, 10));
+                $("#icon1").append(IconOne);
                 $("#Temp1").text("Temp: " + ((response.list[6].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity1").text("Hum.: " + response.list[6].main.humidity + " %");
                 //2nd day after current weather. Info display from mid-day information
                 $("#Date2").text(response.list[14].dt_txt.substr(0, 10));
+                $("#icon2").append(IconTwo);
                 $("#Temp2").text("Temp: " + ((response.list[14].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity2").text("Hum: " + response.list[14].main.humidity + " %");
                 //3nd day after current weather. Info display from mid-day information
                 $("#Date3").text(response.list[22].dt_txt.substr(0, 10));
+                $("#icon3").append(IconThree);
                 $("#Temp3").text("Temp: " + ((response.list[22].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity3").text("Hum: " + response.list[22].main.humidity + " %");
                 //4nd day after current weather. Info display from mid-day information
                 $("#Date4").text(response.list[30].dt_txt.substr(0, 10));
+                $("#icon4").append(IconFour);
                 $("#Temp4").text("Temp: " + ((response.list[30].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity4").text("Hum: " + response.list[30].main.humidity + " %");
                 //5nd day after current weather. Info display from mid-day information
                 $("#Date5").text(response.list[38].dt_txt.substr(0, 10));
+                $("#icon5").append(IconFive);
                 $("#Temp5").text("Temp: " + ((response.list[38].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity5").text("Hum: " + response.list[38].main.humidity + " %");
                 
@@ -102,8 +124,20 @@ $(document).ready(function(){
             method: "GET"
         })
             .then(function(response1) {
+                console.log(typeof response1.current.uvi)
+                var UVI = response1.current.uvi;
                 //Print UVIndex
-                $("#UVIndex").text("UV Index: " + response1.current.uvi);
+                $("#UVIndex").text("UV Index: " + UVI);
+                if (UVI <= 2.99) {                  
+                    UVI = $(UVI).css("background-color", "green");
+                } else if (UVI >= 3 & UVI <= 5.99) {
+                    UVI = $(UVI).css("background-color", "yellow");
+                } else if (UVI >= 6 & UVI <= 7.99) {
+                    UVI = $(UVI).css("background-color", "orange");
+                } else if (UVI >= 8) {
+                    UVI = $(UVI).css("background-color", "red");
+                };
+
             });
     } // Closes WeatherUVI()
 
@@ -115,7 +149,6 @@ $(document).ready(function(){
         WeatherApi(userCity);
     }
     
-
     //Call|Execute the function
     $(".fas").on("click", GetInput);
     $(document).on("click", ".Clickable", clickOnCities);

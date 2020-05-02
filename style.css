@@ -21,7 +21,7 @@
 }
 
 .Forecast1 {
-    background-color: blue;
+    background-color: rgba(34, 167, 240, 1);
     color: White;
     margin-right: 1.5%;
     margin-top: 1%;
@@ -29,7 +29,7 @@
 }
 
 .Forecast2 {
-    background-color: blue;
+    background-color: rgba(34, 167, 240, 1);
     color: White;
     margin-right: 5%;
     margin-top: 1%;
@@ -37,7 +37,7 @@
 }
 
 .Forecast3 {
-    background-color: blue;
+    background-color: rgba(34, 167, 240, 1);
     color: White;
     margin-right: 1.5%;
     margin-top: 1%;
@@ -45,7 +45,7 @@
 }
 
 .Forecast4 {
-    background-color: blue;
+    background-color: rgba(34, 167, 240, 1);
     color: White;
     margin-right: 1.5%;
     margin-top: 1%;
@@ -53,7 +53,7 @@
 }
 
 .Forecast5 {
-    background-color: blue;
+    background-color: rgba(34, 167, 240, 1);
     color: White;
     margin-right: 1.5%;
     margin-top: 1%;
@@ -73,5 +73,9 @@
     margin-bottom: 1%;
     padding: 1%;
     cursor: pointer;
-    
 }
+
+/* #UVIndex {
+    background-color: red;
+    color: white
+} */
