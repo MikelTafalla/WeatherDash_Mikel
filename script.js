@@ -63,7 +63,7 @@ $(document).ready(function(){
                 var FourthDay = "http://openweathermap.org/img/wn/"+response.list[30].weather[0].icon+"@2x.png";
                 var FithDay = "http://openweathermap.org/img/wn/"+response.list[38].weather[0].icon+"@2x.png";
         
-                //Store theimage in a variable to use below
+                //Store the image in a variable to use below
                 var IconMain = $('<img src=" '+ CurrentIcon +' "/>');
                 var IconOne = $('<img src=" '+ FirstDay +' "/>');
                 var IconTwo = $('<img src=" '+ SecondDay +' "/>');
@@ -85,27 +85,27 @@ $(document).ready(function(){
 
                 //1st day = current weather. Info display from mid-day information
                 $("#Date1").text(response.list[6].dt_txt.substr(0, 10));
-                $("#icon1").append(IconOne);
+                $("#icon1").empty().append(IconOne);
                 $("#Temp1").text("Temp: " + ((response.list[6].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity1").text("Hum.: " + response.list[6].main.humidity + " %");
                 //2nd day after current weather. Info display from mid-day information
                 $("#Date2").text(response.list[14].dt_txt.substr(0, 10));
-                $("#icon2").append(IconTwo);
+                $("#icon2").empty().append(IconTwo);
                 $("#Temp2").text("Temp: " + ((response.list[14].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity2").text("Hum: " + response.list[14].main.humidity + " %");
                 //3nd day after current weather. Info display from mid-day information
                 $("#Date3").text(response.list[22].dt_txt.substr(0, 10));
-                $("#icon3").append(IconThree);
+                $("#icon3").empty().append(IconThree);
                 $("#Temp3").text("Temp: " + ((response.list[22].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity3").text("Hum: " + response.list[22].main.humidity + " %");
                 //4nd day after current weather. Info display from mid-day information
                 $("#Date4").text(response.list[30].dt_txt.substr(0, 10));
-                $("#icon4").append(IconFour);
+                $("#icon4").empty().append(IconFour);
                 $("#Temp4").text("Temp: " + ((response.list[30].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity4").text("Hum: " + response.list[30].main.humidity + " %");
                 //5nd day after current weather. Info display from mid-day information
                 $("#Date5").text(response.list[38].dt_txt.substr(0, 10));
-                $("#icon5").append(IconFive);
+                $("#icon5").empty().append(IconFive);
                 $("#Temp5").text("Temp: " + ((response.list[38].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity5").text("Hum: " + response.list[38].main.humidity + " %");
                 
