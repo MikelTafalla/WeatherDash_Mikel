@@ -128,14 +128,15 @@ $(document).ready(function(){
                 var UVI = response1.current.uvi;
                 //Print UVIndex
                 $("#UVIndex").text("UV Index: " + UVI);
+                
                 if (UVI <= 2.99) {                  
-                    UVI = $(UVI).css("background-color", "green");
+                    UVI = $("#UVIndex").css({"background-color": "lightgreen", "display": "inline", "padding": "1%", "border-radius": "10px"});
                 } else if (UVI >= 3 & UVI <= 5.99) {
-                    UVI = $(UVI).css("background-color", "yellow");
+                    UVI = $("#UVIndex").css({"background-color": "yellow", "display": "inline", "padding": "1%", "border-radius": "10px"});
                 } else if (UVI >= 6 & UVI <= 7.99) {
-                    UVI = $(UVI).css("background-color", "orange");
+                    UVI = $("#UVIndex").css({"background-color": "orange", "display": "inline", "padding": "1%", "border-radius": "10px"});
                 } else if (UVI >= 8) {
-                    UVI = $(UVI).css("background-color", "red");
+                    UVI = $("#UVIndex").css({"background-color": "red", "display": "inline", "padding": "1%", "border-radius": "10px"});
                 };
 
             });
