@@ -13,9 +13,9 @@ $(document).ready(function(){
         Cities.push(userCity);
         //Make a string from the cities in the Cities Array
         localStorage.setItem("CitiesNames", JSON.stringify(Cities));
-        //Call the next function to store searched cities as a list
-        var para = $("<p>").text(userCity);
-        $("#CityList").append(para);
+        //Print new cities as user search them
+        var SearchedCities = $("<div>").text(userCity).addClass("Clickable");
+        $("#CityList").append(SearchedCities);
         //userCity, local variable. Feed parameter userCity to function WeatherApi so it can use it
         WeatherApi(userCity);
     }
@@ -23,7 +23,7 @@ $(document).ready(function(){
     function CitiesList() {
         //Convert the String into a JSON object
         Cities = JSON.parse(localStorage.getItem("CitiesNames"));
-        //If CitiesNames doesn't exist in localstorage Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
+        //If CitiesNames doesn't exist in localstorage, Cities will be null. If Cities is null, Cities.length will throw an error. If Cities = null, initialize Cities anyway.
         if (Cities == null) {
         Cities = [];
         }
@@ -33,7 +33,7 @@ $(document).ready(function(){
             var CitiesToDisplay = Cities[i];
             // I want to call them individually and then display in the list
             // print the information in a list, print every name we have in local storage
-            var List = $("<p>").text(CitiesToDisplay)
+            var List = $("<div>").text(CitiesToDisplay).addClass("Clickable"); //add class to add clickable function later
             $("#CityList").append(List);
         }
     }
@@ -42,7 +42,7 @@ $(document).ready(function(){
 
     //Generates current weather and 5 days weather
     function WeatherApi (userCity) {
-
+        console.log(userCity)
         //Build the URL we need to get the current weather information
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "&appid=" + APIKey;
 
@@ -57,16 +57,16 @@ $(document).ready(function(){
                 //Current weather
                 //Data to populate CurrentWeather in DOM
                 $("#TitleCity").text(response.city.name + "  (" + response.list[0].dt_txt.substr(0, 10) + ")"); // Use substr(0, 10 to only retrieve date and not time from the WeatherAPI)
-                $("#Temp").text("Temperature: " + ((response.list[0].main.temp- 273.15) * 1.80 + 32).toFixed(2) + " F");
-                $("#Humidity").text("Humidity: " + response.list[0].main.humidity + " %");
-                $("#Wind").text("Wind Speed: " + response.list[0].wind.speed + " mph");
+                $("#Temp").text("Temperature: " + ((response.list[6].main.temp- 273.15) * 1.80 + 32).toFixed(2) + " F");
+                $("#Humidity").text("Humidity: " + response.list[6].main.humidity + " %");
+                $("#Wind").text("Wind Speed: " + response.list[6].wind.speed + " mph");
                 //For UVI index, create a variable that store the coordinates. Use them with the UVindexAPI to retrieve on currentWeather class HTML.
                 var latitude = response.city.coord.lat;
                 var longitude = response.city.coord.lon;
                 //Transfer the loca variables to weatherUVI()
                 WeatherUVI(latitude, longitude)
 
-                //1st day after current weather. Info display from mid-day information
+                //1st day = current weather. Info display from mid-day information
                 $("#Date1").text(response.list[6].dt_txt.substr(0, 10));
                 $("#Temp1").text("Temp: " + ((response.list[6].main.temp - 273.15) * 1.80 + 32).toFixed(2) + " F");
                 $("#Humidity1").text("Hum.: " + response.list[6].main.humidity + " %");
@@ -105,15 +105,20 @@ $(document).ready(function(){
                 //Print UVIndex
                 $("#UVIndex").text("UV Index: " + response1.current.uvi);
             });
-
-     
-    
     } // Closes WeatherUVI()
-    
 
+    //function to activate click search on stored cities
+    function clickOnCities() {
+        //Give the name value of the city within $(this) to the var userCity.
+        var userCity = $(this)[0].innerHTML;
+        //When we click the searched cities on the list, they transfer the name to the function below through userCity and function is executed.
+        WeatherApi(userCity);
+    }
+    
 
     //Call|Execute the function
     $(".fas").on("click", GetInput);
+    $(document).on("click", ".Clickable", clickOnCities);
 
     //Call Function on page load
     CitiesList();
