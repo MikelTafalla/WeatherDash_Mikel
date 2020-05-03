@@ -26,5 +26,5 @@ Weather App
 2. Current weather and 5 day forecast will appear and city will be saved on searched cities
 3. Click any of the saved cities on the list and they'll display the weather as well.
 
-Reference-style:
-![alt text](Alaska.png "image")
+
+![](assets/Alaska.png)
