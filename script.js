@@ -35,7 +35,6 @@ $(document).ready(function(){
             // print the information in a list, print every name we have in local storage
             var List = $("<div>").text(CitiesToDisplay).addClass("Clickable"); //add class to add clickable function later
             $("#CityList").append(List);
-            
         }
     }
     // This is my API key Globalscope to use it with all API functions
@@ -144,7 +143,7 @@ $(document).ready(function(){
 
     //function to activate click search on stored cities
     function clickOnCities() {
-        //Give the name value of the city within $(this) to the var userCity.
+        //Store the name value of the city within $(this) to the var userCity.
         var userCity = $(this)[0].innerHTML;
         //When we click the searched cities on the list, they transfer the name to the function below through userCity and function is executed.
         WeatherApi(userCity);
