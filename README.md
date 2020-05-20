@@ -27,4 +27,4 @@ Weather App
 3. Click any of the saved cities on the list and they'll display the weather as well.
 
 
-![](assets/Alaska.png)
+![](assets/images/Alaska.png)
