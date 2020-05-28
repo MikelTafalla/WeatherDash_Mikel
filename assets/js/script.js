@@ -148,7 +148,7 @@ $(document).ready(function(){
         //When we click the searched cities on the list, they transfer the name to the function below through userCity and function is executed.
         WeatherApi(userCity);
     }
-    
+    WeatherApi("Tafalla"); 
     //Call|Execute the function
     $(".fas").on("click", GetInput);
     $(document).on("click", ".Clickable", clickOnCities);
