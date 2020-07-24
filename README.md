@@ -1,13 +1,25 @@
 # WeatherDash_Mikel
-Weather App
 
 ## Link
-[Weather_Dashboard](https://mikeltafalla.github.io/WeatherDash_Mikel/)
+[Live Site](https://mikeltafalla.github.io/WeatherDash_Mikel/)
 
-### Summary
-1. HTML, CSS, JS built from scratch
-2. Jquery used for DOM manipulation
-3. HTML built with bootstrap framework
+![GitHub repo size](https://img.shields.io/github/repo-size/MikelTafalla/WeatherDash_Mikel?logo=github)
+![GitHub top language](https://img.shields.io/github/languages/top/MikelTafalla/WeatherDash_Mikel?color=green&logo=github&logoColor=green)
+![GitHub language count](https://img.shields.io/github/languages/count/MikelTafalla/WeatherDash_Mikel?color=green&logo=github&logoColor=green)
+
+# Table of Contents
+
+* [Technologies](#technologies)
+* [Features](#features)
+* [Instructions](#instructions)
+* [Example Gif](#example-gif)
+* [Author](#author)
+
+
+### Technologies
+1. HTML, CSS, JS
+2. Jquery
+3. Bootstrap framework
 4. OpenWeatherMaps API used to retrieve weather info
 
 ### Features
@@ -20,11 +32,23 @@ Weather App
     * Below main box there's a 5 day forecast
 5. UV Index is color coded
 
-### How it works
+### Instructions
 
 1. Enter de name of the city that you are looking for
 2. Current weather and 5 day forecast will appear and city will be saved on searched cities
 3. Click any of the saved cities on the list and they'll display the weather as well.
 
+## Example Gif
 
-![](assets/images/Alaska.png)
+![](assets/images/giphy.gif)
+
+## Author 
+
+**MikelTafalla**
+
+Email: mikel362d@gmail.com
+
+Location: Santa Barbara
+
+GitHub: https://github.com/MikelTafalla
+
